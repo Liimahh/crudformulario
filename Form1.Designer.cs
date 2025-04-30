@@ -30,7 +30,7 @@ namespace formulariosimples
         private void InitializeComponent()
         {
             this.txtNumeroCadastro = new System.Windows.Forms.TextBox();
-            this.txtNomeCompleto = new System.Windows.Forms.TextBox();
+            this.txtNomeUsuario = new System.Windows.Forms.TextBox();
             this.lblDataNasc = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.lblCidade = new System.Windows.Forms.Label();
@@ -42,8 +42,9 @@ namespace formulariosimples
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.lstCliente = new System.Windows.Forms.ListView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.btnExcluir = new System.Windows.Forms.Button();
             this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -57,14 +58,14 @@ namespace formulariosimples
             this.txtNumeroCadastro.Text = "Número Cadastro";
             this.txtNumeroCadastro.Click += new System.EventHandler(this.txtNumeroCadastro_Click);
             // 
-            // txtNomeCompleto
+            // txtNomeUsuario
             // 
-            this.txtNomeCompleto.Location = new System.Drawing.Point(15, 69);
-            this.txtNomeCompleto.Name = "txtNomeCompleto";
-            this.txtNomeCompleto.Size = new System.Drawing.Size(217, 20);
-            this.txtNomeCompleto.TabIndex = 1;
-            this.txtNomeCompleto.Text = "Insira seu nome completo";
-            this.txtNomeCompleto.Click += new System.EventHandler(this.txtNomeCompleto_Click);
+            this.txtNomeUsuario.Location = new System.Drawing.Point(15, 69);
+            this.txtNomeUsuario.Name = "txtNomeUsuario";
+            this.txtNomeUsuario.Size = new System.Drawing.Size(217, 20);
+            this.txtNomeUsuario.TabIndex = 1;
+            this.txtNomeUsuario.Text = "Insira seu nome completo";
+            this.txtNomeUsuario.Click += new System.EventHandler(this.txtNomeCompleto_Click);
             // 
             // lblDataNasc
             // 
@@ -169,43 +170,57 @@ namespace formulariosimples
             this.lstCliente.HideSelection = false;
             this.lstCliente.Location = new System.Drawing.Point(16, 46);
             this.lstCliente.Name = "lstCliente";
-            this.lstCliente.Size = new System.Drawing.Size(384, 367);
+            this.lstCliente.Size = new System.Drawing.Size(476, 338);
             this.lstCliente.TabIndex = 8;
             this.lstCliente.UseCompatibleStateImageBehavior = false;
-            this.lstCliente.SelectedIndexChanged += new System.EventHandler(this.btnCadastrar_Click);
-            this.lstCliente.Click += new System.EventHandler(this.lstCliente_Click);
+            this.lstCliente.SelectedIndexChanged += new System.EventHandler(this.lstCliente_SelectedIndexChanged);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel1.Controls.Add(this.btnExcluir);
             this.panel1.Controls.Add(this.btnPesquisar);
             this.panel1.Controls.Add(this.txtBuscar);
             this.panel1.Controls.Add(this.lstCliente);
-            this.panel1.Location = new System.Drawing.Point(412, 12);
+            this.panel1.Location = new System.Drawing.Point(318, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 426);
+            this.panel1.Size = new System.Drawing.Size(509, 426);
             this.panel1.TabIndex = 9;
             // 
-            // txtBuscar
+            // btnExcluir
             // 
-            this.txtBuscar.Font = new System.Drawing.Font("Open Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscar.Location = new System.Drawing.Point(16, 15);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(246, 25);
-            this.txtBuscar.TabIndex = 9;
+            this.btnExcluir.BackColor = System.Drawing.Color.White;
+            this.btnExcluir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExcluir.Font = new System.Drawing.Font("Open Sans", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluir.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnExcluir.Location = new System.Drawing.Point(392, 388);
+            this.btnExcluir.Name = "btnExcluir";
+            this.btnExcluir.Size = new System.Drawing.Size(100, 35);
+            this.btnExcluir.TabIndex = 11;
+            this.btnExcluir.Text = "Excluir";
+            this.btnExcluir.UseVisualStyleBackColor = false;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnPesquisar
             // 
             this.btnPesquisar.BackColor = System.Drawing.Color.White;
             this.btnPesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnPesquisar.Font = new System.Drawing.Font("Open Sans", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesquisar.Location = new System.Drawing.Point(300, 10);
+            this.btnPesquisar.Location = new System.Drawing.Point(392, 6);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(100, 34);
             this.btnPesquisar.TabIndex = 10;
             this.btnPesquisar.Text = "Pesquisar";
             this.btnPesquisar.UseVisualStyleBackColor = false;
             this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Font = new System.Drawing.Font("Open Sans Condensed", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscar.Location = new System.Drawing.Point(16, 15);
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(346, 25);
+            this.txtBuscar.TabIndex = 9;
             // 
             // frmFormularioSimples
             // 
@@ -220,7 +235,7 @@ namespace formulariosimples
             this.Controls.Add(this.lblCidade);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.lblDataNasc);
-            this.Controls.Add(this.txtNomeCompleto);
+            this.Controls.Add(this.txtNomeUsuario);
             this.Controls.Add(this.txtNumeroCadastro);
             this.Name = "frmFormularioSimples";
             this.Text = "Formulário Simples";
@@ -236,7 +251,7 @@ namespace formulariosimples
         #endregion
 
         private System.Windows.Forms.TextBox txtNumeroCadastro;
-        private System.Windows.Forms.TextBox txtNomeCompleto;
+        private System.Windows.Forms.TextBox txtNomeUsuario;
         private System.Windows.Forms.Label lblDataNasc;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label lblCidade;
@@ -250,6 +265,7 @@ namespace formulariosimples
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button btnExcluir;
     }
 }
 
